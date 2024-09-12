@@ -1,0 +1,11 @@
+## [0.0.1] - 2024-12-08
+
+### Added
+
+- The network module uses upstream terraform-aws-registry examples
+- New environments `non-prod/dev` and `non-prod/sandbox`
+- New account account: `personal`
+
+[unreleased]: https://github.com/asajaroff/cloud-infrastructure-org/compare/v1.1.1...HEAD
+[0.0.2]: https://github.com/asajaroff/cloud-infrastructure-org/compare/v0.0.1...v0.0.2
+[0.0.1]: https://github.com/asajaroff/cloud-infrastructure-org/releases/tag/v0.0.1
