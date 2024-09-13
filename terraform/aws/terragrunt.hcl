@@ -37,7 +37,7 @@ locals {
 # Generate an AWS provider block
 generate "provider" {
   path      = "provider.tf"
-  if_exists = "overwrite"
+  if_exists = "skip"
   contents  = <<EOF
 provider "aws" {
   region = "eu-west-1"

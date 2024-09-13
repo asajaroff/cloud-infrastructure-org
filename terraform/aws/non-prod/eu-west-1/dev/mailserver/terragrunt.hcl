@@ -7,11 +7,11 @@ include "root" {
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   region_vars      = read_terragrunt_config(find_in_parent_folders("region.hcl"))
-  suffix = "${local.environment_vars.locals.environment}-${local.region_vars.locals.aws_region}"
+  suffix           = "${local.environment_vars.locals.environment}-${local.region_vars.locals.aws_region}"
 }
 
 dependency "network" {
-  config_path = "../network"
+  config_path                             = "../network"
   mock_outputs_allowed_terraform_commands = ["validate", "plan"]
   mock_outputs = {
     vpc_id         = "vpc-${local.suffix}"
@@ -25,7 +25,7 @@ terraform {
 }
 
 inputs = {
-  name = "appserver-generic-${local.suffix}"
+  name          = "appserver-generic-${local.suffix}"
   ami           = "ami-03b9edf83c8d896e6"
   instance_type = "t3.micro" // ToDo consider ARM
   key_name      = "mailserver-test"

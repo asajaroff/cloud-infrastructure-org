@@ -24,5 +24,4 @@ inputs = {
   map_public_ip_on_launch = false
   enable_nat_gateway      = false
   enable_vpn_gateway      = false
-
 }

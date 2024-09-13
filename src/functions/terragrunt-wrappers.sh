@@ -5,3 +5,9 @@ function tg() {
 		--more params \
 		--out plan \
 }
+
+function tg-bootstrap() {
+	# bootstrap tofu
+	# detect tofu / terraform
+	terragrunt init 
+}

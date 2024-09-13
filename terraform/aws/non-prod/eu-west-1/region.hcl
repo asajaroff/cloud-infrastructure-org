@@ -2,5 +2,5 @@
 # configure the remote state bucket and pass forward to the child modules as inputs.
 locals {
   aws_region  = "eu-west-1"
-  domain_name = "grep.ar."
+  domain_name_website_svelte = "molest.ar"
 }

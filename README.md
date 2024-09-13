@@ -6,33 +6,22 @@ This repository serves as a working example on creating a fully functional infra
 It attempts to compare and provide insight on how different cloud providers manage resources.
 
 It provides:
-* Terraform state management
-* Infracosts breakdown
-* Modular network stack
-* EC2 instance and configuration
-* Import / export dependencies for terraform through Terragrunt's `dependency` block.
+* Modular stack
+* Dependency management. Import and export dependencies using `terragrunt`'s `dependency` block
+* Terraform state and lock configuration and management
+* Costs breakdown with `infracosts`
 
-## Project setup
+The source code is shared under the BSD 2-Clause license.
+
+# Project structure
+Different providers have its own [folders](./terraform/) within the `terraform` folder.
+
 There are 2 main environments: *prod* and *non-prod*.
-
-Let's take a look at *non-prod*:
-```
-.
-└── non-prod
-    └── eu-west-1
-        ├── dev
-        │   ├── mailserver
-        │   └── network
-        └── sandbox
-            ├── mailserver
-            └── network
-
-```
 
 ## Opentofu & Terraform
 [Terragrunt](https://terragrunt.gruntwork.io/docs/getting-started/quick-start/#introduction) will be used to orchestrate all `terraform` / `tofu` code.
 
-### Project structure
+### terraform/aws
 ```
 ├── non-prod
 │   ├── account.hcl
@@ -71,3 +60,12 @@ Modules must work with both tf and tofu.
 * [Azure](https://github.com/asajaroff/tofu-azure-modules/tree/main)
 * [Digital Ocean](https://github.com/asajaroff/tofu-do-modules/tree/main)
 * [Google Cloud Platform](https://github.com/asajaroff/tofu-gcp-modules/tree/main)
+
+## Ansible
+Yet to be completed.
+
+## Polumi
+Yet to be completed.
+
+## Crossplane.io
+Yet to be completed.
