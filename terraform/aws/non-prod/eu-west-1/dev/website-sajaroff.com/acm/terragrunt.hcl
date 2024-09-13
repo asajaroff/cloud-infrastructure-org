@@ -10,10 +10,10 @@ terraform {
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   region_vars      = read_terragrunt_config(find_in_parent_folders("region.hcl"))
-  common_vars      = read_terragrunt_config(find_in_parent_folders("module_vars.hcl"))
+  module_vars      = read_terragrunt_config(find_in_parent_folders("module_vars.hcl"))
 }
 
 inputs = {
-  domain_name           = "dev-alejandro"
-  top_level_domain_name = "${local.common_vars.locals.site_name}"
+  domain_name           = "${local.module_vars.locals.site_name}"
+  top_level_domain_name = "${local.module_vars.locals.top_level_domain_name}"
 }
