@@ -10,11 +10,13 @@ terraform {
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   region_vars      = read_terragrunt_config(find_in_parent_folders("region.hcl"))
+  common_vars      = read_terragrunt_config(find_in_parent_folders("common_vars.hcl"))
 }
 
 inputs = {
-  name                = "gringolas-sveltekit-website-${local.environment_vars.locals.environment}"
-  region              = local.region_vars.locals.aws_region
+  bucket_prefix       = "${local.environment_vars.locals.environment}-static-site-${local.common_vars.locals.site_name}-"
   block_public_access = true
-  force_destroy       = true
+  force_destroy       = true # change for prod
+
+  region = local.region_vars.locals.aws_region
 }

@@ -14,5 +14,5 @@ locals {
 
 inputs = {
   domain_name           = "svelte-profile"
-  top_level_domain_name 	    = "${local.region_vars.locals.domain_name_website_svelte}"
+  top_level_domain_name = "${local.region_vars.locals.domain_name_website_svelte}"
 }

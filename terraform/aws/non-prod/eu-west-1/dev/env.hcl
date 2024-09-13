@@ -2,4 +2,8 @@
 # feed forward to the child modules.
 locals {
   environment = "dev"
+  domain_name = ".molest.ar"
+
+  s3_unique_identifier = "kcoala-${local.environment}"
+  s3_bucket_versioning = false
 }
