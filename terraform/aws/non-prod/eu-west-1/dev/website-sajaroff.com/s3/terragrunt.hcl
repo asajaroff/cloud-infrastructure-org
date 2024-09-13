@@ -14,7 +14,7 @@ locals {
 }
 
 inputs = {
-  bucket_prefix       = "${local.environment_vars.locals.environment}-static-site-${local.common_vars.locals.site_name}-"
+  bucket_prefix       = "site-${local.environment_vars.locals.environment}-${local.common_vars.locals.site_name}-${local.common_vars.locals.top_level_domain_name}-"
   block_public_access = true
   force_destroy       = true # change for prod
 
