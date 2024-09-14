@@ -4,7 +4,7 @@ include "root" {
 }
 
 terraform {
-  source = "/Users/alejandrosajaroff/Code/github.com/asajaroff/tf-aws-s3-website/modules/certificates"
+  source = "/Users/alejandrosajaroff/Code/github.com/asajaroff/tofu-aws-modules/modules/acm"
 }
 
 locals {
