@@ -9,3 +9,9 @@ output sg_allow_ssh {
     sensitive = false
     description = "Allows SSH in and all outbound traffic"
 }
+
+output vpc_id {
+    value = aws_vpc.this[0].id
+    sensitive = false
+    description = "VPC id for the current environment"
+}
