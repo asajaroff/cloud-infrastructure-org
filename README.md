@@ -61,6 +61,11 @@ Modules must work with both tf and tofu.
 * [Digital Ocean](https://github.com/asajaroff/tofu-do-modules/tree/main)
 * [Google Cloud Platform](https://github.com/asajaroff/tofu-gcp-modules/tree/main)
 
+To import a module from the library, use:
+```bash
+terragrunt catalog https://github.com/asajaroff/tofu-aws-modules//
+```
+
 ## Ansible
 Yet to be completed.
 

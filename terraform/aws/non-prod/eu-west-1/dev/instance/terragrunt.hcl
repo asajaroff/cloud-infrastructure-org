@@ -7,13 +7,22 @@ include "root" {
   path = find_in_parent_folders()
 }
 
-dependency "network" {
-  config_path                             = "../network"
-}
-
 locals {
   environment_vars = read_terragrunt_config(find_in_parent_folders("env.hcl"))
   region_vars      = read_terragrunt_config(find_in_parent_folders("region.hcl"))
+}
+
+dependency "network" {
+  config_path                             = "../network"
+  # Configure mock outputs for the `validate` command that are returned when there are no outputs available (e.g the
+  # module hasn't been applied yet.
+  mock_outputs_allowed_terraform_commands = ["validate"]
+  mock_outputs = {
+    instance_name = "procsi.development.ar"
+    vpc_id = "vpc-mocked"
+    subnet_id = "subnet-mocked"
+    region = "us-east-1"
+  }
 }
 
 inputs = {
@@ -32,11 +41,11 @@ inputs = {
 
   # Description: If true, will associate a public ip address with the created instance
   # Type: bool
-  # associate_public_ip_address = false
+  associate_public_ip_address = true
 
   # Description: If true, enables AWS Session Manager for connecting to the instance
   # Type: string
-  # aws_ssm_enabled = true
+  aws_ssm_enabled = true
 
   # Description:
   #   The instance type, defaults to 't3.micro'
@@ -51,7 +60,7 @@ inputs = {
   #   - arm64
   #   
   # Type: string
-  # os_arch = "amd64"
+  os_arch = "amd64"
 
   # Description:
   #     The flavor for the EC2 instance to be deployed, possible options:
@@ -60,7 +69,7 @@ inputs = {
   #     - freebsd
   #   
   # Type: string
-  # os_family = "debian"
+  os_family = "debian"
 
   # Description: (variable tags did not define a description)
   # Type: map
@@ -72,6 +81,4 @@ inputs = {
 
   # Description: Create an SSH key for connecting to the EC2 instace
   # Type: bool
-  # create_key = true
-
 }
