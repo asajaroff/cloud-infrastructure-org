@@ -5,6 +5,6 @@ locals {
   aws_account_id = "761399334120"
   top_level_domain_names = {
     development = "development.ar"
-    staging = "molest.ar"
+    staging     = "molest.ar"
   }
 }

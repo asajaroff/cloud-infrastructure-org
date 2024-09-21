@@ -13,15 +13,15 @@ locals {
 }
 
 dependency "network" {
-  config_path                             = "../network"
+  config_path = "../network"
   # Configure mock outputs for the `validate` command that are returned when there are no outputs available (e.g the
   # module hasn't been applied yet.
   mock_outputs_allowed_terraform_commands = ["validate"]
   mock_outputs = {
     instance_name = "procsi.development.ar"
-    vpc_id = "vpc-mocked"
-    subnet_id = "subnet-mocked"
-    region = "us-east-1"
+    vpc_id        = "vpc-mocked"
+    subnet_id     = "subnet-mocked"
+    region        = "us-east-1"
   }
 }
 
@@ -30,9 +30,9 @@ inputs = {
   # Required input variables
   # --------------------------------------------------------------------------------------------------------------------
   instance_name = "procsi.development.ar"
-  vpc_id = dependency.network.outputs.vpc_id
-  subnet_id = dependency.network.outputs.public_subnets
-  region = local.region_vars.locals.aws_region
+  vpc_id        = dependency.network.outputs.vpc_id
+  subnet_id     = dependency.network.outputs.public_subnets
+  region        = local.region_vars.locals.aws_region
 
   # --------------------------------------------------------------------------------------------------------------------
   # Optional input variables
