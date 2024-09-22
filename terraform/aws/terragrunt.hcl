@@ -20,8 +20,9 @@ locals {
   # debug_line = run_cmd("echo", "${jsonencode(local.environment_vars)}")
 
   default_tags = {
-    terragrunt  = true
-    environment = local.environment_vars.locals.environment
+    terragrunt     = true
+    environment    = local.environment_vars.locals.environment
+    iac_repository = "https://github.com/asajaroff/cloud-infrastructure-org"
   }
 
   # Load an overrides.yml file in any Terragrunt folder, or fallback to {} if none is found
@@ -52,15 +53,15 @@ EOF
 }
 
 terraform {
-  before_hook "format_hcl" {
-    commands = ["plan"]
-    execute  = ["terragrunt", "hclfmt", ]
-  }
-
-  before_hook "format_tf" {
-    commands = ["plan"]
-    execute  = ["terraform", "fmt", ]
-  }
+  #  before_hook "format_hcl" {
+  #    commands = ["plan"]
+  #    execute  = ["terragrunt", "hclfmt", ]
+  #  }
+  #
+  #  before_hook "format_tf" {
+  #    commands = ["plan"]
+  #    execute  = ["terraform", "fmt", ]
+  #  }
 
   # ToDo: execute infracost after plan and apply
   #  after_hook "infracost" {
