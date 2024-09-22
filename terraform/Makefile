@@ -12,4 +12,3 @@ tf-fmt:
 	terragrunt hclfmt \
 		--terragrunt-diff \
 		--terragrunt-no-colorfmt
-terragrunt scaffold https://github.com/asajaroff/tf-aws-cloudfront-s3-origin/.

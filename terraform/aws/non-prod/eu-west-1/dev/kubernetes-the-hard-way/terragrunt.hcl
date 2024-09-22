@@ -22,40 +22,40 @@ inputs = {
 
   instances_map = [
     {
-      name = "jumpbox.development.ar",
-      instance_type = "t4g.nano",
+      name                    = "jumpbox.development.ar",
+      instance_type           = "t4g.nano",
       disable_api_termination = false
-      volume_size = 10
-      public = true
+      volume_size             = 10
+      public                  = true
     },
     {
-      name = "server.development.ar",
-      instance_type = "t4g.small",
+      name                    = "server.development.ar",
+      instance_type           = "t4g.small",
       disable_api_termination = false
-      volume_size = 20
-      public = true
+      volume_size             = 20
+      public                  = true
     },
     {
-      name = "node-0.development.ar",
-      instance_type = "t4g.small",
+      name                    = "node-0.development.ar",
+      instance_type           = "t4g.small",
       disable_api_termination = false
-      volume_size = 20
-      public = true
+      volume_size             = 20
+      public                  = true
     },
     {
-      name = "node-1.development.ar",
-      instance_type = "t4g.small",
+      name                    = "node-1.development.ar",
+      instance_type           = "t4g.small",
       disable_api_termination = false
-      volume_size = 20
-      public = true
-    }]
+      volume_size             = 20
+      public                  = true
+  }]
 
   # Description: VPC where the resources will be created
   # Type: string
-  vpc_id = dependency.network.outputs.vpc_id
+  vpc_id    = dependency.network.outputs.vpc_id
   subnet_id = dependency.network.outputs.public_subnets
-  region = local.region_vars.locals.aws_region
-  os_arch = "arm64"
+  region    = local.region_vars.locals.aws_region
+  os_arch   = "arm64"
   os_family = "debian"
 
 }
