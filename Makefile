@@ -21,4 +21,8 @@ prod: ## Runs `terragrunt run-all` for prod
 		$(CMD_OPTS) \
 		$(LOG_LEVEL)
 
-
+apply-prod: ## Runs `terragrunt run-all` for prod
+	$(CMD) run-all apply \
+		--terragrunt-working-dir ./terraform/aws/prod/eu-west-1 \
+		$(CMD_OPTS) \
+		$(LOG_LEVEL)
