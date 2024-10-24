@@ -1,5 +1,5 @@
 terraform {
-  source = "git::https://github.com/asajaroff/tofu-aws-modules.git//modules/cloudfront-s3-static-site?ref=feat/pretty-urls"
+  source = "git::https://github.com/asajaroff/tofu-aws-modules.git//modules/cloudfront-s3-static-site?ref=main"
 }
 
 locals {
