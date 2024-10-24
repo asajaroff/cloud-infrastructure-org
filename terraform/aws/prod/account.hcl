@@ -4,6 +4,6 @@ locals {
   account_name   = "prod"
   aws_account_id = "761399334120"
   top_level_domain_names = {
-    development = "sajaroff.com"
+    personal_website = "sajaroff.com."
   }
 }

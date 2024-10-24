@@ -79,6 +79,7 @@ remote_state {
   config = {
     encrypt        = true
     bucket         = "${get_env("TG_BUCKET_PREFIX", "")}terragrunt-tf-state-${local.account_name}-${local.aws_region}"
+    # bucket         = "${get_env("TG_BUCKET_PREFIX", "")}terragrunt-tf-states/${local.account_name}/${local.aws_region}"
     key            = "${path_relative_to_include()}/tf.tfstate"
     region         = local.aws_region
     dynamodb_table = "tf-locks"
