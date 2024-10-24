@@ -14,7 +14,7 @@ locals {
 
 
 inputs = {
-  name = "vpc-${local.environment_vars.locals.environment}-${local.region_vars.locals.region}"
+  name = "vpc-${local.environment_vars.locals.environment}-${local.region_vars.locals.aws_region}"
   cidr = "10.0.0.0/16"
 
   azs             = ["eu-west-1a", "eu-west-1b", "eu-west-1c"]
